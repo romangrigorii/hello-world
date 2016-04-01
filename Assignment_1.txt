@@ -1,0 +1,213 @@
+ROMAN GRIGORII
+
+ASSIGNMENT 1
+
+18)
+
+The first step is PREPROCESSING, which turns the SOURCE CODE into a processed code. 
+At this step all constants are turned into their values within the program, all the macros
+are also filled in where called, and the .h files invoked by #include are replaced by 
+the prototypes inside them
+
+The second step s COMPILING, at which step the processed code turns into ASSEMPLY CODE. 
+It is here that all the omments are removed.
+
+The third step is ASSEMBLING, which returns OBJECT CODE, which cannot be viewed with
+a text editor.
+
+Last step is LINKING, the output of which are LINKED OBJECT CODES.
+
+19)
+Main returns an int; A 0 if it is executed sucessfuly and a non zero int if it has not.
+
+21)
+(a)  Since i,j and sum are unsigned, their respective values 60, 80, 140 are sucessfully 
+stored because they are in the range 0...255. 
+
+SUM IS THEREFORE = 140 after the assignment.
+
+(b)
+
+i+k=260. This values is not within the allowed range of an unsigned char. In hexadecimal
+this value can be written as 1*16^2+0*16^1+4*16^0 ==> 0x104. Because we only have 1 
+byte to store this it being that sum is 1 byte long, the 1 from 104 must be droped. Therefore
+we are left with 0x04 which is equivalent to 4 in decimal. 
+
+SUM IS THEREFORE = 4 after the assignment.
+
+
+(c)
+
+Using the same reasoning as in b, 280=1*16^2+1*16^1+8*16^0==>0x118 in hex.
+the leftmost 1 gets droped, and we are left with 0x18 which is equal to 24 in decimal.
+
+SUM IS THEREFORE = 24 after the assignment.
+
+
+22)
+
+(a) The result is 0.0000 because the compiler attempt to keep 2/3 as an int therefore
+rounding that to 0, and then assigns this number to float.
+(b) The result is 0.6666 because the compiler implicitly type casts b to a float before the
+/ operation is performaed, and since there are two float being divided and assigned to a float,
+the answer doesnot to be rounded as before
+(c) The result is 0.0000 because the operation a/b is performed before any type casting 
+is done, and the result of that, which is 0 is then typcasted to float, which becomes 0.0000
+(d) The result is 3 because e/d is equal to 3.5000, and then this value is assigned to an int
+which means it will be rounded down to an integer when assigned.
+(e) The result is 3 because e/d typecasted to an int converts their result 3.5000 which is a
+aflot to an integer, and thus it is rounded down to an integer.
+(f) The result is 3.0000, because 3.5 is type casted into an int which means the division performed is
+3/1.0 Since 3 is an int and comes before 1.0 then 1.0 is converted to an int, making it 1. 3/1 is 
+equal to 3.00000
+
+27)
+
+Since we have written a program of good modularity, this is not a big problem. We do the following:
+(i) Make sure the input we have given is what we inteneded, and that the output is wrong.
+(ii) Since we should have been checking heper functions as we have written them, 
+I would first check the main function to see if they are called correctly.
+(iii) If after fixing main I still don't get the expected results, I will check the helper functions seperately
+and check if my program works after each change I make to the helper functions.
+(iv)If a function does not behave as it should I would check whether the varibles are defined correctly,
+if the pointers are pointing to what they are intended to, the math, the loops and etc.
+
+28)
+
+Attached as invest.c , as instructed.
+
+30)
+
+(a) 3 because that is what is located at x[1]
+(b) 4 because *x returns the first value in the array
+(c) 2 because *(x+2) returns 1+2=3rd value in the array
+(d) 6 because *x returns 4 and 4+2=6
+(e) "error/unknown" => it's an error because x[3] is 1 and *1 makes no sense because
+1 needs to be an address which it is not
+(f) "error/unknown" => it's unknown because x[4] is not prespecified
+(g) 2 because x[1] returns 3, &(x[1]) returns the address of 3 within the array, then we add 1 to that adress
+which now returns the adress of 2, and then we get the value at that adress which is 2
+
+31)
+
+i is 5  because 5>1 is evaluated as True which is equiavalent to 1 in C, thus 3*(5>1) is 3. k=2 is 
+an expression that evaluates to 2. k==6 evaluated to 0 because == checks if k is equal to 6 which
+it doesn't since the part before it (k=2) sets it equal to 2.
+
+32)
+
+at the assignment a is 0x0D in hex, which is 13 in dec, which is in turn 00001101 in bit
+b is 0x03 in hex, 3 in dec, which is 00000011 in bit.
+
+(a) ~a = 11110010 which in dec is 128+64+32+16+2=242. Converting this to hex: 242 = 15*16^1+2*16^0
+The answer is: 0xF2
+
+(b) a&b = 00001101 & 00000011 = 00000001 Converting this to hex...
+The answer is: 0x01
+
+(c) a | b = 00001111  which in dec is 15. Converting this to hex...
+The answer is: 0x0F
+
+
+(d) a^b  = 00001110 which is 14 in dec
+The answer is: 0x0E
+
+(e) a>>3=00000001
+The answer is : 0x01
+
+(f) a<<3=01101000, which is 64+32+8=104 in dec, and converting this to hex 104=6*16^1+8*16^0
+The answer is: 0x68
+
+
+34) The code is also attached as ASCIItable.c file.
+
+***code***
+
+//PROGRAM COMMENTS
+/* This program when run prints a table with decimal values ranging from 33 to
+127 and the corresponding ASCII characters of those values. What is printed is a
+3 column able, inside each column of which there are two columns with dec
+values on the left side and their corresponding ASCII characters on the right.
+
+The program was written by Roman Grigorii on 1/6/16.
+*/
+
+//PREPROCESSOR COMMANDS
+#include <stdio.h>
+
+//DATATYPE DEFINITIONS
+/* none
+*/
+
+//GLOBAL VARIABLES
+/* none
+*/
+
+//HELPER FUNCTIONS PROTOTYPES
+/* none (the program is contained in main)
+*/
+
+//MAIN FUNCTION
+
+int main(void) {
+int i,u,start=33,end=127,NumOfCols=3; //setting the size of the table
+int colLen=(end-start)/NumOfCols; // calculating the shortest column length
+int curElem; //marks the current element being printed
+printf("\n\n\t\tASCII Table\n");
+printf("_________________________________________________\n");
+
+for(i=0;i<=colLen;i++){
+  for(u=0;u<NumOfCols;u++){
+    curElem=i+start+u*(1+colLen);//sets the current element
+    if(curElem<=end){ //checks if we haven't listed all the elements
+      printf("|%d\t%c\t|",curElem,curElem); //prints the new element
+    }
+    else{//if we printed all elements, the slot in the table is filled in empty
+      printf("|\t\t|");
+    };
+  };
+  printf("\n");
+};
+printf("_________________________________________________\n");
+return 0;
+};
+
+
+***output*** (much better looking in command window)
+ 
+                ASCII Table
+_________________________________________________
+|33     !       ||65    A       ||97    a       |
+|34     "       ||66    B       ||98    b       |
+|35     #       ||67    C       ||99    c       |
+|36     $       ||68    D       ||100   d       |
+|37     %       ||69    E       ||101   e       |
+|38     &       ||70    F       ||102   f       |
+|39     '       ||71    G       ||103   g       |
+|40     (       ||72    H       ||104   h       |
+|41     )       ||73    I       ||105   i       |
+|42     *       ||74    J       ||106   j       |
+|43     +       ||75    K       ||107   k       |
+|44     ,       ||76    L       ||108   l       |
+|45     -       ||77    M       ||109   m       |
+|46     .       ||78    N       ||110   n       |
+|47     /       ||79    O       ||111   o       |
+|48     0       ||80    P       ||112   p       |
+|49     1       ||81    Q       ||113   q       |
+|50     2       ||82    R       ||114   r       |
+|51     3       ||83    S       ||115   s       |
+|52     4       ||84    T       ||116   t       |
+|53     5       ||85    U       ||117   u       |
+|54     6       ||86    V       ||118   v       |
+|55     7       ||87    W       ||119   w       |
+|56     8       ||88    X       ||120   x       |
+|57     9       ||89    Y       ||121   y       |
+|58     :       ||90    Z       ||122   z       |
+|59     ;       ||91    [       ||123   {       |
+|60     <       ||92    \       ||124   |       |
+|61     =       ||93    ]       ||125   }       |
+|62     >       ||94    ^       ||126   ~       |
+|63     ?       ||95    _       ||127          |
+|64     @       ||96    `       ||              |
+_________________________________________________
+

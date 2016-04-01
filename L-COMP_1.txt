@@ -1,0 +1,59 @@
+ROMAN GRIGORII
+L-COMPS
+
+L-comp 8
+Answer:
+printf("%9.5f\n%10c",d,c);
+
+L-comp 9
+Answer:
+They are of the same size because they are both adresses.
+
+L-comp 10
+Answer:
+Since the 4 byte int is unsigned, its valaues will range 0...2^32-1 which is
+equal to 0...4294967295. To get to the limit of the range of our int we can
+multiply 429496729.5 by 10. Since 429496729.5 is not an integer, the smallest 
+value that will result in integer overflow is thus number rounded up,
+which is 429496730
+
+L-comp 11
+Answer:
+
+(1) ratio=number/denom contains no typecasts because the user doesn't specify any,
+and the program would not be inclined to use any because both numer and denom
+are already of the same type (int).
+(2) ratio=number/((double) denom) has an EXPLICIT typecast on denom, but also
+and IMPLICIT typecast on number, since the program wants number and denom 
+to be of the same type.
+(3) ratio=((double) numer)/((double)denom) is EXPLICIT, since we use (double)
+on both numer and denom.
+
+L-comp 12
+Answer:
+Global variables work against modularity because they allow one function affect
+another and thus the functions within the program are not seperately defined.
+
+L-comp 13
+Answer:
+A function prototype is useful when one is trying to call functions that have not
+yet been fully defined or are defined after they have been called.
+
+L-comp 14
+Answer:
+Preprocessor commands are recognized by starting a line with #. Some of these incude:
+#include <.h file> where the preprocessor will replace this line with all the function
+protypes included in it.
+#define var_name value where the preprocessor will replace every occurance of
+var_name in the code with value. In much the same way we can use define to 
+write short commands, such as #define f(x) (x^2) which is called a macro,
+and will replace every occurance of f(x) with x^2.
+
+L-comp 15
+Answer:
+It acesses the element inv0 in the struct named inv.
+
+L-comp 16
+Answer:
+True = any number that isn't 0
+False = 0
